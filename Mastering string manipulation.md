@@ -457,3 +457,114 @@ Python's string handling capabilities are powerful and versatile. Mastering stri
 Remember that strings are immutable in Python - operations that modify strings actually create new string objects. For intensive string manipulation, consider using `io.StringIO` or list operations followed by `join()` for better performance.
 
 The string methods and techniques covered here form the foundation for working with text in Python, and they're used extensively in web development, data science, automation scripts, and virtually every other Python application domain.
+
+
+
+Practice Questions
+1. What are escape characters?
+2. What do the \n and \t escape characters represent?
+3. How can you put a \ backslash character in a string?
+4. The string value "Howl's Moving Castle" is a valid string. Why isn’t it
+a problem that the single quote character in the word Howl's isn’t
+escaped?
+5. If you don’t want to put \n in your string, how can you write a string
+with newlines in it?
+6. What do the following expressions evaluate to?
+•	 'Hello world!'[1]
+•	 'Hello world!'[0:5]
+•	 'Hello world!'[:5]
+•	 'Hello world!'[3:]
+7. What do the following expressions evaluate to?
+•	 'Hello'.upper()
+•	 'Hello'.upper().isupper()
+•	 'Hello'.upper().lower()
+8. What do the following expressions evaluate to?
+•	 'Remember, remember, the fifth of November.'.split()
+•	 '-'.join('There can be only one.'.split())
+9. What string methods can you use to right-justify, left-justify, and center
+a string?
+
+
+
+
+Here are the answers to the practice questions:
+
+### 1. What are escape characters?
+Escape characters are special sequences that represent characters that are difficult or impossible to type directly in strings. They begin with a backslash (`\`) followed by a character that has special meaning. For example:
+- `\n` represents a newline
+- `\t` represents a tab
+- `\'` represents a single quote
+- `\"` represents a double quote
+
+### 2. What do the \n and \t escape characters represent?
+- `\n` represents a newline character (line break)
+- `\t` represents a tab character (horizontal indentation)
+
+### 3. How can you put a \ backslash character in a string?
+You can include a backslash in a string by escaping it with another backslash:
+```python
+path = "C:\\Users\\Documents"  # Shows as C:\Users\Documents
+```
+Or by using a raw string:
+```python
+path = r"C:\Users\Documents"
+```
+
+### 4. Why isn't it a problem that the single quote in "Howl's Moving Castle" isn't escaped?
+Because the string is enclosed in double quotes (`"`), Python doesn't interpret the single quote (`'`) inside as a string delimiter. Python only looks for matching quotes of the same type used to start the string.
+
+### 5. How can you write a string with newlines without using \n?
+You can use triple-quoted strings (either `'''` or `"""`):
+```python
+multiline = """This string
+has multiple lines
+without using \n"""
+```
+
+### 6. What do these expressions evaluate to?
+- `'Hello world!'[1]` → `'e'` (second character, index 1)
+- `'Hello world!'[0:5]` → `'Hello'` (characters from index 0 to 4)
+- `'Hello world!'[:5]` → `'Hello'` (same as above, start defaults to 0)
+- `'Hello world!'[3:]` → `'lo world!'` (from index 3 to end)
+
+### 7. What do these expressions evaluate to?
+- `'Hello'.upper()` → `'HELLO'`
+- `'Hello'.upper().isupper()` → `True` (HELLO is all uppercase)
+- `'Hello'.upper().lower()` → `'hello'`
+
+### 8. What do these expressions evaluate to?
+- `'Remember, remember, the fifth of November.'.split()` → 
+  `['Remember,', 'remember,', 'the', 'fifth', 'of', 'November.']`
+- `'-'.join('There can be only one.'.split())` → 
+  `'There-can-be-only-one.'`
+
+### 9. What string methods can you use to justify text?
+- Right-justify: `str.rjust(width[, fillchar])`
+- Left-justify: `str.ljust(width[, fillchar])`
+- Center: `str.center(width[, fillchar])`
+
+Example:
+```python
+print('hello'.rjust(10))      # '     hello'
+print('hello'.ljust(10, '-')) # 'hello-----'
+print('hello'.center(10))     # '  hello   '
+```
+
+### 10. How can you trim whitespace from strings?
+- `strip()` - removes whitespace from both ends
+- `lstrip()` - removes whitespace from the left end
+- `rstrip()` - removes whitespace from the right end
+
+Example:
+```python
+text = "   some text   "
+print(text.strip())   # "some text"
+print(text.lstrip())  # "some text   "
+print(text.rstrip())  # "   some text"
+```
+
+These methods can also remove specific characters:
+```python
+text = "xxxyyyHello Worldyyyxxx"
+print(text.strip('xy'))  # "Hello World"
+```
