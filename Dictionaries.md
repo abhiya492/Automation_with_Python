@@ -465,3 +465,92 @@ Key takeaways:
 - Views provide efficient ways to examine dictionary contents
 
 Whether you're building configuration systems, implementing caches, processing JSON data, or modeling game boards, dictionaries will often be your tool of choice in Python.
+
+
+
+
+
+
+
+
+Practice Questions
+1. What does the code for an empty dictionary look like?
+2. What does a dictionary value with a key 'foo' and a value 42 look like?
+3. What is the main difference between a dictionary and a list?
+4. What happens if you try to access spam['foo'] if spam is {'bar': 100}?
+5. If a dictionary is stored in spam, what is the difference between the
+expressions 'cat' in spam and 'cat' in spam.keys()?
+6. If a dictionary is stored in spam, what is the difference between the
+expressions 'cat' in spam and 'cat' in spam.values()?
+7. What is a shortcut for the following code?
+if 'color' not in spam:
+ spam['color'] = 'black'
+8. What module and function can be used to “pretty print” dictionary
+values?
+answer all
+
+
+
+
+
+
+
+
+Here are the answers to the practice questions:
+
+1. **What does the code for an empty dictionary look like?**
+   ```python
+   {}
+   ```
+   or
+   ```python
+   dict()
+   ```
+
+2. **What does a dictionary value with a key 'foo' and a value 42 look like?**
+   ```python
+   {'foo': 42}
+   ```
+
+3. **What is the main difference between a dictionary and a list?**
+   - Lists are ordered sequences accessed by integer indices (positions)
+   - Dictionaries are unordered collections accessed by keys (which can be of various immutable types)
+   - Lists maintain order and allow duplicate elements
+   - Dictionaries have unique keys and don't maintain order (though they preserve insertion order in Python 3.7+)
+
+4. **What happens if you try to access spam['foo'] if spam is {'bar': 100}?**
+   ```python
+   spam = {'bar': 100}
+   spam['foo']  # Raises KeyError: 'foo'
+   ```
+
+5. **If a dictionary is stored in spam, what is the difference between the expressions 'cat' in spam and 'cat' in spam.keys()?**
+   - There is no practical difference
+   - `'cat' in spam` checks if 'cat' is a key in the dictionary
+   - `'cat' in spam.keys()` explicitly checks the keys view
+   - Both expressions return the same boolean result
+
+6. **If a dictionary is stored in spam, what is the difference between the expressions 'cat' in spam and 'cat' in spam.values()?**
+   - `'cat' in spam` checks if 'cat' is a key in the dictionary
+   - `'cat' in spam.values()` checks if 'cat' exists among the dictionary's values
+   - These could return different results (e.g., `spam = {'cat': 'dog'}` would have `'cat' in spam` as True but `'cat' in spam.values()` as False)
+
+7. **What is a shortcut for the following code?**
+   ```python
+   if 'color' not in spam:
+       spam['color'] = 'black'
+   ```
+   The shortcut is:
+   ```python
+   spam.setdefault('color', 'black')
+   ```
+
+8. **What module and function can be used to "pretty print" dictionary values?**
+   - Module: `pprint`
+   - Function: `pprint.pprint()`
+   Example:
+   ```python
+   import pprint
+   pprint.pprint(dictionary)
+   ```
+   Alternatively, you can use `pprint.pformat()` to get the pretty-printed string instead of printing it directly.
